@@ -5758,8 +5758,8 @@
 
   // Plays a signal when the terminal bell is ringing.
   "accessibility.signals.terminalBell": {
-    "announcement": "auto",
-    "sound": "auto"
+    "sound": "off",
+    "announcement": "auto"
   },
 
   // Plays a signal when a terminal command fails (non-zero exit code).
