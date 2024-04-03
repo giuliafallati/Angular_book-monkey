@@ -1,6 +1,6 @@
 <div class="details" *ngIf="book">
   <h1>{{ book.title }}</h1>
-  <p role="doc-subtitle" *ngIf="book.subtitle"> {{ book.subtitle }} </p>
+  <p role="doc-subtitle" *ngIf="book.subtitle">{{ book.subtitle }}</p>
   <div class="header">
     <div>
       <h2>Authors</h2>
@@ -10,16 +10,16 @@
     </div>
     <div>
       <h2>ISBN</h2>
-      {{book.isbn}}
+      {{ book.isbn }}
     </div>
 
     <div *ngIf="book.published">
       <h2>Published</h2>
-      {{book.published}}
+      {{ book.published }}
     </div>
   </div>
   <h2>Description</h2>
   <p>{{ book.description }}</p>
-  <img *ngIf="book.thumbnailUrl" [src]="book.thumbnailUrl" alt="Cover">
+  <img *ngIf="book.thumbnailUrl" [src]="book.thumbnailUrl" alt="Cover" />
   <button class="arrow-left" (click)="doLeave()">Back to list</button>
 </div>

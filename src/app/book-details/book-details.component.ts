@@ -4,7 +4,7 @@ import { Book } from '../shared/book';
 @Component({
   selector: 'bm-book-details',
   templateUrl: './book-details.component.html',
-  styleUrl: './book-details.component.css'
+  styleUrl: './book-details.component.css',
 })
 export class BookDetailsComponent {
   @Input() book?: Book;
