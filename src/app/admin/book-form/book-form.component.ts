@@ -1,8 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+
+import { Book } from '../../shared/book';
 
 @Component({
   selector: 'bm-book-form',
   templateUrl: './book-form.component.html',
-  styleUrl: './book-form.component.css',
+  styleUrls: ['./book-form.component.css'],
 })
-export class BookFormComponent {}
+export class BookFormComponent {
+  book: Book = {
+    isbn: '',
+    title: '',
+    authors: [''],
+  };
+
+  @Output() submitBook = new EventEmitter<Book>();
+
+  submitForm() {
+    this.submitBook.emit(this.book);
+  }
+}
