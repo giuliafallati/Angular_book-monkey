@@ -2172,9 +2172,6 @@
   // Show notebook editor rich content results for closed notebooks. Please refresh your search results after changing this setting.
   "search.experimental.closedNotebookRichContentResults": false,
 
-  // Controls whether the last typed input to Quick Search should be restored when opening it the next time.
-  "search.experimental.quickAccess.preserveInput": false,
-
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
 
@@ -5641,12 +5638,6 @@
     "sound": "auto"
   },
 
-  // Plays a signal on loop while the response is pending.
-  "accessibility.signals.chatResponsePending": {
-    "announcement": "auto",
-    "sound": "auto"
-  },
-
   // Indicates when the response has been received.
   "accessibility.signals.chatResponseReceived": {
     "sound": "off"
@@ -5657,9 +5648,6 @@
     "announcement": "auto",
     "sound": "auto"
   },
-
-  // Whether or not position changes should be debounced
-  "accessibility.signals.debouncePositionChanges": false,
 
   // Indicates when the focus moves to an deleted line in Accessible Diff Viewer mode or to the next/previous change.
   "accessibility.signals.diffLineDeleted": {
@@ -5740,9 +5728,6 @@
     "announcement": "always",
     "sound": "never"
   },
-
-  // The volume of the sounds in percent (0-100).
-  "accessibility.signals.sounds.volume": null,
 
   // Plays a signal when a task is completed.
   "accessibility.signals.taskCompleted": {
@@ -6708,5 +6693,13 @@
 
   // **Deprecated:** This setting was removed when the PowerShell installation searcher was added. Please use the `powershell.powerShellAdditionalExePaths` setting instead.
   // **Deprecated:** Uses the 32-bit language service on 64-bit Windows. This setting has no effect on 32-bit Windows or on the PowerShell extension debugger, which has its own architecture configuration.
-  "powershell.useX86Host": false
+  "powershell.useX86Host": false,
+  "accessibility.signals.progress": {
+    "announcement": "auto",
+    "sound": "auto"
+  },
+  "search.quickAccess.preserveInput": false,
+  "accessibility.signalOptions": {
+    "debouncePositionChanges": false
+  }
 }

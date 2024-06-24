@@ -1,17 +1,33 @@
 import { Component } from '@angular/core';
-import { Book } from '../../shared/book';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BookStoreService } from '../../shared/book-store.service';
+import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
+
+import { BookStoreService } from '../../shared/book-store.service';
+import { Book } from '../../shared/book';
+import { IsbnPipe } from '../../shared/isbn.pipe';
+import { LoggedinOnlyDirective } from '../../shared/loggedin-only.directive';
+import { ConfirmDirective } from '../../shared/confirm.directive';
 
 @Component({
   selector: 'bm-book-details',
   templateUrl: './book-details.component.html',
-  styleUrl: './book-details.component.css',
+  styleUrls: ['./book-details.component.css'],
+  standalone: true,
+  imports: [
+    NgIf,
+    NgFor,
+    DatePipe,
+    AsyncPipe,
+    RouterLink,
+    IsbnPipe,
+    LoggedinOnlyDirective,
+    ConfirmDirective,
+  ],
 })
 export class BookDetailsComponent {
-  book?: Book;
   book$: Observable<Book>;
+
   constructor(
     private service: BookStoreService,
     private route: ActivatedRoute,
@@ -22,10 +38,8 @@ export class BookDetailsComponent {
   }
 
   removeBook(isbn: string) {
-    if (window.confirm('Remove book?')) {
-      this.service.remove(isbn).subscribe(() => {
-        this.router.navigateByUrl('/books');
-      });
-    }
+    this.service.remove(isbn).subscribe(() => {
+      this.router.navigateByUrl('/books');
+    });
   }
 }

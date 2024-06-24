@@ -1,0 +1,13 @@
+<a *ngIf="book" [routerLink]="book.isbn" class="list-item">
+  <img *ngIf="book.thumbnailUrl" [src]="book.thumbnailUrl" alt="Cover" i18n-alt="cover alt text|Alternative text when no cover is defined@@BookListItemComponentAltCover">
+  <h2>{{ book.title }}</h2>
+  <p role="doc-subtitle" *ngIf="book.subtitle">
+    {{ book.subtitle }}
+  </p>
+  <ul class="comma-list">
+    <li *ngFor="let author of book.authors">
+      {{ author }}
+    </li>
+  </ul>
+  <div><ng-container i18n="book text before ISBN|Text for ISBN right before the number@@BookListItemComponentIsbn">ISBN</ng-container> {{ book.isbn | isbn }}</div>
+</a>
